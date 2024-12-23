@@ -1,9 +1,6 @@
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using Soenneker.Html.Client.Abstract;
 using Soenneker.Tests.FixturedUnit;
 using Xunit;
-
 
 namespace Soenneker.Html.Client.Tests;
 
@@ -15,5 +12,11 @@ public class HtmlClientTests : FixturedUnitTest
     public HtmlClientTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
     {
         _util = Resolve<IHtmlClient>(true);
+    }
+
+    [Fact]
+    public void Default()
+    {
+
     }
 }
