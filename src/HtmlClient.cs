@@ -8,7 +8,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 namespace Soenneker.Html.Client;
 
 /// <inheritdoc cref="IHtmlClient"/>
-public class HtmlClient: IHtmlClient
+public class HtmlClient : IHtmlClient
 {
     private readonly IHttpClientCache _httpClientCache;
 

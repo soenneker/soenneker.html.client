@@ -13,18 +13,20 @@ public static class HtmlClientRegistrar
     /// <summary>
     /// Adds <see cref="IHtmlClient"/> as a singleton service. <para/>
     /// </summary>
-    public static void AddHtmlClientAsSingleton(this IServiceCollection services)
+    public static IServiceCollection AddHtmlClientAsSingleton(this IServiceCollection services)
     {
-        services.AddHttpClientCache();
-        services.TryAddSingleton<IHtmlClient, HtmlClient>();
+        services.AddHttpClientCacheAsSingleton().TryAddSingleton<IHtmlClient, HtmlClient>();
+
+        return services;
     }
 
     /// <summary>
     /// Adds <see cref="IHtmlClient"/> as a scoped service. <para/>
     /// </summary>
-    public static void AddHtmlClientAsScoped(this IServiceCollection services)
+    public static IServiceCollection AddHtmlClientAsScoped(this IServiceCollection services)
     {
-        services.AddHttpClientCache();
-        services.TryAddScoped<IHtmlClient, HtmlClient>();
+        services.AddHttpClientCacheAsSingleton().TryAddScoped<IHtmlClient, HtmlClient>();
+
+        return services;
     }
 }
