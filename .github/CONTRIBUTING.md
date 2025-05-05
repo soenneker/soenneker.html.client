@@ -1,4 +1,4 @@
-# Contributing to Soenneker.Html.Client
+﻿# Contributing to Soenneker.Html.Client
 
 We're excited that you're interested in contributing!
 
