@@ -8,7 +8,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 namespace Soenneker.Html.Client;
 
 /// <inheritdoc cref="IHtmlClient"/>
-public class HtmlClient : IHtmlClient
+public sealed class HtmlClient : IHtmlClient
 {
     private readonly IHttpClientCache _httpClientCache;
 
@@ -24,15 +24,11 @@ public class HtmlClient : IHtmlClient
 
     public void Dispose()
     {
-        GC.SuppressFinalize(this);
-
         _httpClientCache.RemoveSync(nameof(HtmlClient));
     }
 
     public ValueTask DisposeAsync()
     {
-        GC.SuppressFinalize(this);
-
         return _httpClientCache.Remove(nameof(HtmlClient));
     }
 }
