@@ -1,20 +1,19 @@
 using Soenneker.Html.Client.Abstract;
-using Soenneker.Tests.FixturedUnit;
-using Xunit;
+using Soenneker.Tests.HostedUnit;
 
 namespace Soenneker.Html.Client.Tests;
 
-[Collection("Collection")]
-public class HtmlClientTests : FixturedUnitTest
+[ClassDataSource<Host>(Shared = SharedType.PerTestSession)]
+public class HtmlClientTests : HostedUnitTest
 {
     private readonly IHtmlClient _util;
 
-    public HtmlClientTests(Fixture fixture, ITestOutputHelper output) : base(fixture, output)
+    public HtmlClientTests(Host host) : base(host)
     {
         _util = Resolve<IHtmlClient>(true);
     }
 
-    [Fact]
+    [Test]
     public void Default()
     {
 
