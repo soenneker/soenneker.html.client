@@ -3,11 +3,40 @@
 [![](https://img.shields.io/nuget/dt/soenneker.html.client.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.html.client/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.html.client/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.html.client/actions/workflows/codeql.yml)
 
-# ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Html.Client
-### A .NET HTTP client for HTML parsing
+# Soenneker.Html.Client
 
-## Installation
+A .NET HTTP client for HTML parsing.
 
-```
+## Install
+
+```bash
 dotnet add package Soenneker.Html.Client
 ```
+
+## Quick start
+
+```csharp
+using Soenneker.Html.Client.Registrars;
+using Microsoft.Extensions.DependencyInjection;
+
+var services = new ServiceCollection();
+var result = services.AddHtmlClientAsSingleton();
+```
+
+Adds `IHtmlClient` as a singleton service.
+
+## What you get
+
+- `IHtmlClient` — A .NET HTTP client for HTML parsing.
+- `HtmlClientRegistrar` — A .NET HTTP client for HTML parsing.
+
+## API at a glance
+
+| API | What it does | Result / important behavior |
+| --- | --- | --- |
+| `HtmlClientRegistrar.AddHtmlClientAsSingleton(services)` | Adds `IHtmlClient` as a singleton service. | The same service collection, so additional registrations can be chained. |
+| `HtmlClientRegistrar.AddHtmlClientAsScoped(services)` | Adds `IHtmlClient` as a scoped service. | The same service collection, so additional registrations can be chained. |
+
+## Practical notes
+
+- Dispose instances you own when their scope ends so held resources can be released.
