@@ -13,6 +13,8 @@ public static class HtmlClientRegistrar
     /// <summary>
     /// Adds <see cref="IHtmlClient"/> as a singleton service. <para/>
     /// </summary>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddHtmlClientAsSingleton(this IServiceCollection services)
     {
         services.AddHttpClientCacheAsSingleton().TryAddSingleton<IHtmlClient, HtmlClient>();
@@ -23,6 +25,8 @@ public static class HtmlClientRegistrar
     /// <summary>
     /// Adds <see cref="IHtmlClient"/> as a scoped service. <para/>
     /// </summary>
+    /// <param name="services">Service collection that receives the registration.</param>
+    /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddHtmlClientAsScoped(this IServiceCollection services)
     {
         services.AddHttpClientCacheAsSingleton().TryAddScoped<IHtmlClient, HtmlClient>();
