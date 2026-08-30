@@ -29,7 +29,7 @@ public static class HtmlClientRegistrar
     /// <returns>The same service collection, so additional registrations can be chained.</returns>
     public static IServiceCollection AddHtmlClientAsScoped(this IServiceCollection services)
     {
-        services.AddHttpClientCacheAsSingleton().TryAddScoped<IHtmlClient, HtmlClient>();
+        services.AddHttpClientCacheAsScoped().TryAddScoped<IHtmlClient, HtmlClient>();
 
         return services;
     }

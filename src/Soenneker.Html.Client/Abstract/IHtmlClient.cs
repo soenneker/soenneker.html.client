@@ -6,14 +6,14 @@ using System;
 namespace Soenneker.Html.Client.Abstract;
 
 /// <summary>
-/// A .NET HTTP client for HTML parsing
+/// Provides a cached <see cref="HttpClient"/> for retrieving HTML resources.
 /// </summary>
 public interface IHtmlClient : IAsyncDisposable, IDisposable
 {
     /// <summary>
-    /// Returns the configured http Client used by the html client.
+    /// Gets the HTTP client cached for this service's lifetime.
     /// </summary>
-    /// <param name="cancellationToken">Token used to cancel the operation.</param>
-    /// <returns>A task whose result is the requested http Client.</returns>
+    /// <param name="cancellationToken">Stops client creation if the cached instance has not been created yet.</param>
+    /// <returns>The cached HTTP client.</returns>
     ValueTask<HttpClient> Get(CancellationToken cancellationToken = default);
 }
