@@ -25,7 +25,7 @@ public class HtmlClientTests : HostedUnitTest
     }
 
     [Test]
-    public async Task Scoped_client_uses_scoped_cache()
+    public async ValueTask Scoped_client_uses_scoped_cache()
     {
         var services = new ServiceCollection();
 
@@ -39,7 +39,7 @@ public class HtmlClientTests : HostedUnitTest
     }
 
     [Test]
-    public async Task Singleton_client_uses_singleton_cache()
+    public async ValueTask Singleton_client_uses_singleton_cache()
     {
         var services = new ServiceCollection();
 
